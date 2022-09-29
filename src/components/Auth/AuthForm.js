@@ -7,6 +7,7 @@ const AuthForm = () => {
   const passwordInputRef = useRef();
 
   const [isLogin, setIsLogin] = useState(true);
+  const [loading, setIsLoading] = useState(false);
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -24,7 +25,7 @@ const AuthForm = () => {
         {
           method: "POST",
           body: JSON.stringify({
-            email: enteredEmail,
+            email: enteredEmail, //firebase specific
             password: enteredPassword,
             returnSecureToken: true,
           }),
